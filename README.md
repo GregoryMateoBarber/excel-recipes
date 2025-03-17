@@ -3,6 +3,8 @@ Formulas and operations cooked up over the years in Microsoft Excel, Power Query
 
 All "code" is stored in plain text files. 
 
+Some of the formulas will be simple, others more advanced.
+
 ## General reference links
 Reference sites
 ### Microsoft documentation
