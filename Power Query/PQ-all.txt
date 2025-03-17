@@ -1,0 +1,2 @@
+// Add leading 0s to a string
+LeadingZeros = Table.TransformColumns(Source, {{"Your Column Name Here", each Text.PadStart(_, 7, "0"), type text}})
