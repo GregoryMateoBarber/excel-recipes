@@ -8,3 +8,11 @@
 	CUBERANKEDMEMBER("ThisWorkbookDataModel",column_to_show,SEQUENCE(CUBESETCOUNT(column_to_show)))
 	)
 '''
+
+## Calculate Quarter from Date
+'''
+=LET(
+	comment, "Turns a date value into a quarter value, i.e., 1, 2, 3, or 4",
+	ROUNDUP(MONTH([Date])/3,0)
+	)
+'''

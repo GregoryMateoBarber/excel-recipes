@@ -1,7 +1,7 @@
 # Excel Recipes
 Formulas and operations cooked up over the years in Microsoft Excel, Power Query, PowerPivot, or VBA
 
-All "code" is stored in plain text files. 
+All "code" is stored in Markdown files. There is no styling, sadly.
 
 Some of the formulas will be simple, others more advanced.
 
