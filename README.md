@@ -1,5 +1,5 @@
 # Excel Recipes
-Formulas and operations cooked up over the years in Microsoft Excel, Power Query, PowerPivot, or VBA
+Formulas and operations cooked up over the years in Microsoft Excel, Power Query, PowerPivot, or VBA. There are also some notes from my experiences.
 
 All "code" is stored in Markdown files. There is no styling, sadly.
 
