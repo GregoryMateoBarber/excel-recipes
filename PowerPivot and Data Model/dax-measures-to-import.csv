@@ -1,0 +1,4 @@
+MeasureName,DAXFormula,Format
+Total Sales,SUM(Sales[Amount]),Currency
+Average Price,AVERAGE(Sales[Price]),Currency
+Total Orders,COUNTROWS(Sales),General
