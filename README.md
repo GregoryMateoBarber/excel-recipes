@@ -9,6 +9,3 @@ Some of the formulas will be simple, others more advanced.
 
 ## Further reading
 Please refer to the wiki for more information!
-### Microsoft documentation
-- Power Query: https://learn.microsoft.com/en-us/power-query/
-- Power Query M language: https://learn.microsoft.com/en-us/powerquery-m/
