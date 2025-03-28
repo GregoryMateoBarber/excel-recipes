@@ -36,3 +36,4 @@ This can be combined with a TEXTSPLIT() function to split it into two columns.
 	INDEX(array_a,array_a_index)&"|"&INDEX(array_b,array_b_index)
 	)
 ```
+
