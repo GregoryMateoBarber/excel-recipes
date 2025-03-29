@@ -1,14 +1,31 @@
-Sub AddMeasuresFromCSV_WithModelTable()
+Function GetModelFormat(mdl As Model, formatName As String) As Object ' TODO add ability to specific format strings
+    Select Case UCase(Trim(formatName))
+        Case "CURRENCY"
+            Set GetModelFormat = mdl.ModelFormatCurrency
+        Case "PERCENTAGE", "PERCENT"
+            Set GetModelFormat = mdl.ModelFormatPercentage
+        Case "WHOLE NUMBER", "INTEGER", "WHOLE"
+            Set GetModelFormat = mdl.ModelFormatWholeNumber
+        Case "DECIMAL", "NUMBER"
+            Set GetModelFormat = mdl.ModelFormatDecimalNumber
+        Case Else
+            Set GetModelFormat = mdl.ModelFormatGeneral
+    End Select
+End Function
+Sub ImportMeasuresToPowerPivotFromCSVManual()
     Dim filePath As String
-    filePath = "C:\Your\File\Path\measures.csv" ' TODO: Change to your filepath.
+    filePath = Application.GetOpenFilename("CSV Files (*.csv), *.csv", , "Select a CSV File")
 
     Dim fileNum As Integer
     fileNum = FreeFile
     Dim lineText As String
     Dim parts() As String
+	
+	Dim mdl As Model
+	Set mdl = ThisWorkbook.Model
 
     Dim mdlTable As ModelTable
-    Set mdlTable = ThisWorkbook.Model.ModelTables("YourTableName") ' TODO: Change to your table name.
+    Set mdlTable = ThisWorkbook.Model.ModelTables("YourTableName") ' TODO change to input box with list of tables printed
 
     Open filePath For Input As #fileNum
 
@@ -30,9 +47,11 @@ Sub AddMeasuresFromCSV_WithModelTable()
                 measureName = Replace(measureName, Chr(34), "")
                 daxFormula = Replace(daxFormula, Chr(34), "")
                 formatString = Replace(formatString, Chr(34), "")
-
-                On Error Resume Next
-                ThisWorkbook.Model.ModelMeasures.Add measureName, mdlTable, daxFormula, formatString
+				
+				Dim mdlFormat As Object
+                Set mdlFormat = GetModelFormat(mdl, formatString)
+                
+                ThisWorkbook.Model.ModelMeasures.Add measureName, mdlTable, daxFormula, mdlFormat
                 If Err.Number <> 0 Then
                     Debug.Print "Error adding measure: " & measureName & " - " & Err.Description
                     Err.Clear
